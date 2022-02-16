@@ -23,9 +23,6 @@ const pc = require('prompt-sync')();
 // [1] noticias boas, cerca de 2 pra 1 em relação as ruins e neutras
 // [2] noticias ruins.
 // [3] sobre eleições ficará a parte, pois será necessario ter um controle, são as que mais terão um impacto nas moedas. elas devem começar
-// ja no primeiro mês antes da primeira rodada, e ir aparecendo mes a mes, até outubro.
-// nas noticias das eleições, ja estará programado quem vai ganhar. mas nao terá uma interferencia tão grande quanto o acumulo das noticias
-// até o mês 10
 // peso 1 => muita importancia 70%
 // peso 2 => importancia media 40%
 // peso 3 => pouca importancia 15%
@@ -57,6 +54,27 @@ var noticiatri = [
     ['OpenSea cresceu cerca de 14Bilhoes de dólares após aquisições de coleções de NFT',1,'nftsobe'],
 ]
 
+function reset(){
+    noticiatri = [
+        ['Logo nesse inicio de ano, spacex anuncia seu interesse em fazer lançamentos de satélites capazes de dar internet para o mundo.', 1, 'btcsobe'],
+        ['Com o anuncio dos candidatos a presidencia do Brasil, algumas manifestações ja começaram contra o presidente da esquerda', 3, 'dolarcai'],
+        ['Russia e Ucrania estão em um momento tenso, guerra fria? 3º guerra mundial? o que esperar disso? fiquem atentos', 2, 'dolarsobe'],
+        ['Vacina Pfizer não mostra tanta eficacia. Todos que tomaram a 2º dose terá de tomar a 3º', 2, 'dolarcai'],
+        [`Ja começamos com o acumulo da mega-sena!!quem sera o ganhador?`, 3, 'mega'],
+        ['Que onda é essa que estamos passando com a tecnologia? Agora você pode comprar NFT (non-fungible token). O que será que é isso?', 1, 'nftsobe'],
+        ['O metaverso foi criado! Essa inovação seria um bom complemento com as nfts. Como funcionaria as transações dentro desse universo? Interessante.', 1, 'nftsobe'],
+        ['Tesla faz o lançamentos dos seus novissímos carros tecnológicos', 1, 'btcsobe'],
+        ['Presidente dos EUA demonstra apoio a Ucrania.',1, 'dolarsobe'],
+        ['Estados Unidos encerra acordo de mercado com China',1, 'dolarcair'],
+        ['China proibe a mineração das blockchains de Bitcoin no país.', 1, 'dolarsobe'],
+        ['Cazaquistão para evitar maiores problemas e conter a manifestação no país, desligam a internet por todo o território',1,'dolarsobe'],
+        ['NFT apesar de ter sido lançado, não apresenta utilidade no momento além de status, sera isso mesmo?',1, 'dolarsobe'],
+        ['Copom anuncia o aumento da taxa selic a 10,75% ao ano. Mercado prevê aumento ainda maior, podendo chegar até 12,25%', 1, 'dolarcai'],
+        ['Nanotecnologia ja é uma realidade, internet mais rapida, computadores mais potentes.',1,'btcsobe'],
+        ['Vacuo quantico será a nova tecnologia para internet espacial',1,'btcsobe'],
+        ['OpenSea cresceu cerca de 14Bilhoes de dólares após aquisições de coleções de NFT',1,'nftsobe'],
+    ]
+}
 function soltarnoticiatri(){
     aleatorio = Math.trunc(Math.random()*(noticiatri.length))
     let notice = noticiatri[aleatorio]
@@ -522,6 +540,8 @@ as informações que conseguirmos.`)
         soltarnoticiatri()
         passames()
     }
+    mes = 0
+    reset()
     console.clear()
     //criar opções de escolha (entre comprar, ler a noticia novamente, passar o mês)
     //depois ele tem que escolher passa mês
@@ -560,6 +580,7 @@ as informações que conseguirmos.`)
     você mesmo a oportunidade!`)
     }
     console.log()
+    
 } while (init != 2)
 
 console.log("Obrigado por ter jogado!")
