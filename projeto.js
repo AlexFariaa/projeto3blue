@@ -542,6 +542,7 @@ as informações que conseguirmos.`)
     }
     mes = 0
     reset()
+    noticiausada = []
     console.clear()
     //criar opções de escolha (entre comprar, ler a noticia novamente, passar o mês)
     //depois ele tem que escolher passa mês
